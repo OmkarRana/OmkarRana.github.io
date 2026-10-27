@@ -1,0 +1,190 @@
+{
+  "name": "Omkar Rana",
+  "initials": "OR",
+  "title": "Data Engineer",
+  "availability": "Open to data engineering opportunities",
+  "headline": "Bringing data into focus.",
+  "valueProposition": "Building cloud data pipelines with Python, PySpark, AWS Glue, and Lambda.",
+  "summary": "Data Engineer with 3+ years of professional experience building cloud data pipelines using Python, PySpark, AWS Glue, and Lambda. Hands-on experience in Machine Learning, NLP, and Generative AI, with a focus on building data systems that support ML workflows.",
+  "email": "omkar.b.rana@gmail.com",
+  "phone": "+91 94081 69810",
+  "links": {
+    "github": "https://github.com/OmkarRana",
+    "linkedin": "https://www.linkedin.com/in/omkar-rana/"
+  },
+  "resumeUrl": "/resume.pdf",
+  "experience": [
+    {
+      "company": "Tata Consultancy Services",
+      "shortName": "TCS",
+      "role": "Data Engineer",
+      "start": "Nov 2023",
+      "end": "Present",
+      "location": "Gandhinagar, Gujarat",
+      "highlights": [
+        "Built PySpark pipelines on AWS Glue and Lambda to prepare healthcare data for ML-driven recommendations.",
+        "Worked on database migration to reduce data latency for downstream systems.",
+        "Trained 50+ associates in Python and AWS, aligning their skills with project requirements."
+      ],
+      "technologies": [
+        "PySpark",
+        "AWS Glue",
+        "AWS Lambda",
+        "Python"
+      ]
+    },
+    {
+      "company": "ESTEE Advisors",
+      "shortName": "EA",
+      "role": "Data Analyst",
+      "start": "Sep 2023",
+      "end": "Nov 2023",
+      "location": "Gandhinagar, Gujarat",
+      "highlights": [
+        "Built visual reports for trading results to help the team analyze market patterns.",
+        "Improved Python scripts used to run trading strategies automatically on schedule."
+      ],
+      "technologies": [
+        "Python",
+        "Reporting",
+        "Automation"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Languages",
+      "items": [
+        "Python",
+        "SQL",
+        "Java",
+        "C/C++"
+      ]
+    },
+    {
+      "category": "Cloud & Big Data",
+      "items": [
+        "AWS Glue",
+        "AWS Lambda",
+        "AWS SageMaker",
+        "AWS EC2",
+        "AWS CDK",
+        "Databricks",
+        "Azure",
+        "PySpark",
+        "Airflow",
+        "Delta Lake"
+      ]
+    },
+    {
+      "category": "AI/ML & GenAI",
+      "items": [
+        "LLMs",
+        "RAG",
+        "LangChain",
+        "TensorFlow/PyTorch"
+      ]
+    },
+    {
+      "category": "MLOps / LLMOps",
+      "items": [
+        "MLflow",
+        "CI/CD",
+        "Docker",
+        "Kubernetes",
+        "Model Monitoring and Observability"
+      ]
+    },
+    {
+      "category": "Databases & Tools",
+      "items": [
+        "Git",
+        "Vector DBs (Pinecone/FAISS)"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "label-detection",
+      "name": "Label Detection",
+      "category": "Computer vision",
+      "description": "Extracting label numbers from cement bags moving along a conveyor belt in video footage.",
+      "details": [
+        "Used OpenCV to convert video to images and detect bags.",
+        "Calculated the average time each bag spent on screen to optimize the process and improve accuracy to over 93%."
+      ],
+      "technologies": [
+        "Deep Learning",
+        "OpenCV",
+        "Python"
+      ],
+      "repoUrl": null,
+      "demoUrl": null
+    },
+    {
+      "id": "parking-aid",
+      "name": "Parking Aid System",
+      "category": "Image processing",
+      "description": "Identifying empty parking slots from a top-view image of a parking lot, displayed at the entrance.",
+      "details": [
+        "Used OpenCV and MATLAB libraries to detect open spaces in the parking lot."
+      ],
+      "technologies": [
+        "OpenCV",
+        "MATLAB"
+      ],
+      "repoUrl": null,
+      "demoUrl": null
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Databricks Certified Data Engineer Associate",
+      "issuer": "Databricks",
+      "url": "https://credentials.databricks.com/1c7055b8-8bed-4563-b3f2-d619e0d2bfc2#acc.wAQYJm26"
+    },
+    {
+      "name": "Databricks Certified Generative AI Engineer Associate",
+      "issuer": "Databricks",
+      "url": "https://credentials.databricks.com/e7eda21f-c0fa-40b1-a75b-869054c24efd#acc.ThMAxQpq"
+    },
+    {
+      "name": "AWS AI Practitioner",
+      "issuer": "AWS",
+      "url": "https://aws.amazon.com/verification",
+      "credentialId": "f643abaea337438bbb6d864e144815df"
+    },
+    {
+      "name": "Claude Certified Architect - Foundations",
+      "issuer": "Anthropic",
+      "url": "https://www.credly.com/badges/755ef9d5-cd98-44f8-bf70-155ab4baa9b4"
+    }
+  ],
+  "education": {
+    "institution": "Nirma University",
+    "degree": "Bachelor of Technology in Computer Science and Engineering",
+    "location": "Ahmedabad, Gujarat",
+    "start": "Jul 2019",
+    "end": "May 2023"
+  },
+  "headlineLead": "Bringing data into",
+  "headlineAccent": "focus.",
+  "facts": [
+    {
+      "value": "3+",
+      "unit": "years",
+      "label": "Professional experience"
+    },
+    {
+      "value": "50+",
+      "unit": "associates",
+      "label": "Trained in Python & AWS"
+    }
+  ],
+  "focusTechnologies": [
+    "Python",
+    "PySpark",
+    "AWS",
+    "SQL"
+  ]
+}

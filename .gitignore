@@ -1,0 +1,11 @@
+node_modules/
+.bun-cache/
+.tools/
+.next/
+out/
+.env*
+!.env.example
+*.tsbuildinfo
+next-env.d.ts
+.vercel/
+tmp/

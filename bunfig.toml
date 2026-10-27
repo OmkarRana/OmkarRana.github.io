@@ -1,0 +1,3 @@
+[install.cache]
+# Keep downloaded package cache inside this project rather than the user profile.
+dir = ".bun-cache"
