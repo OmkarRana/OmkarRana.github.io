@@ -1,0 +1,637 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-27T21:54:43.0585325+05:30",
+  "title": "Design System: Omkar Rana portfolio",
+  "extensions": {
+    "typographyMeta": {
+      "display": {
+        "displayName": "Profile name",
+        "purpose": "34px desktop, 29px at 600px and 26px at 370px."
+      },
+      "headline": {
+        "displayName": "Contact invitation",
+        "purpose": "24px contact section heading."
+      },
+      "title": {
+        "displayName": "Section title",
+        "purpose": "Compact 17px section headings."
+      },
+      "body": {
+        "displayName": "Reading text",
+        "purpose": "15px base; profile summary uses 1.85 line height and 65ch maximum."
+      },
+      "label": {
+        "displayName": "Metadata",
+        "purpose": "12px supporting context and dates."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-outline",
+        "value": "0 0 0 1px color-mix(in oklab, var(--foreground) 10%, transparent)",
+        "purpose": "Project card outline; not a drop shadow."
+      },
+      {
+        "name": "control-focus",
+        "value": "0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent)",
+        "purpose": "Keyboard focus for buttons and fields."
+      }
+    ],
+    "motion": [
+      {
+        "purpose": "Shared Motion easing [0.23,1,0.32,1] for authored geometry and opacity, also CSS control color easing.",
+        "name": "ease-control",
+        "value": "cubic-bezier(.23,1,.32,1)"
+      },
+      {
+        "purpose": "Built-in CSS background and color feedback; no CSS transform animation.",
+        "name": "button-color-transition",
+        "value": "150ms"
+      },
+      {
+        "purpose": "Motion animate scales real primary-pointer presses to 0.97, then restores on release/cancel/pressed-leave. Keyboard does not invoke it; reduced motion uses scale 1 and 0ms. Ordinary pointer leave starts no animation.",
+        "name": "press-feedback",
+        "value": "140ms"
+      },
+      {
+        "purpose": "Contact disclosure: Motion transform from -90deg closed to0deg open. Keyboard/reduced motion immediate.",
+        "name": "disclosure-chevron",
+        "value": "180ms"
+      },
+      {
+        "purpose": "Measured accordion height through MotionPanel and ResizeObserver; keyboard/reduced motion height timing is 0ms. Shadcn content remains mounted with hidden=false, aria-hidden and inert immediately on close.",
+        "name": "disclosure-height",
+        "value": "200ms"
+      },
+      {
+        "purpose": "MotionPanel content fade; keyboard timing 0ms, reduced motion opacity 100ms.",
+        "name": "disclosure-opacity",
+        "value": "160ms"
+      },
+      {
+        "purpose": "AnimatePresence icon crossfade with incoming -30deg/outgoing +30deg rotation and scale 0.9 at ends. Keyboard immediate; reduced motion 100ms opacity with no rotation/scale. Palette switches immediately.",
+        "name": "theme-icon",
+        "value": "150ms"
+      },
+      {
+        "purpose": "Visible-default Motion entrance: opacity 0.8 to 1 and translateY 6px to 0. Reduced motion: opacity 0.9 to 1 over 100ms, without translation.",
+        "name": "profile-entrance",
+        "value": "240ms"
+      },
+      {
+        "purpose": "Keyboard disclosure/theme activation is immediate. Reduced motion removes geometry, retaining brief opacity alternatives. CSS motion is 0ms with reduced motion or Tab input; all authored geometric motion uses Motion.",
+        "name": "motion-accessibility",
+        "value": "keyboard 0ms; reduced opacity 100ms"
+      },
+      {
+        "name": "experience-chevron",
+        "value": "150ms",
+        "purpose": "Installed Chanh Dai double-chevron paths morph through Motion. Keyboard/reduced motion use0ms."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow-phone-max",
+        "value": "370px"
+      },
+      {
+        "name": "mobile-max",
+        "value": "600px"
+      },
+      {
+        "name": "field-small-type-min",
+        "value": "768px"
+      }
+    ],
+    "colorMeta": {
+      "light-background": {
+        "role": "neutral",
+        "displayName": "light background",
+        "canonical": "#fafafa",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "light-foreground": {
+        "role": "neutral",
+        "displayName": "light foreground",
+        "canonical": "#202020",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "light-card": {
+        "role": "neutral",
+        "displayName": "light card",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "light-primary": {
+        "role": "neutral",
+        "displayName": "light primary",
+        "canonical": "#262626",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "light-secondary": {
+        "role": "neutral",
+        "displayName": "light secondary",
+        "canonical": "#efefef",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "light-secondary-foreground": {
+        "role": "neutral",
+        "displayName": "light secondary foreground",
+        "canonical": "#424242",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "light-muted-foreground": {
+        "role": "neutral",
+        "displayName": "light muted foreground",
+        "canonical": "#666666",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "light-accent": {
+        "role": "neutral",
+        "displayName": "light accent",
+        "canonical": "#eeeeee",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "light-border": {
+        "role": "neutral",
+        "displayName": "light border",
+        "canonical": "#e3e3e3",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "light-input": {
+        "role": "neutral",
+        "displayName": "light input",
+        "canonical": "#d9d9d9",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "light-ring": {
+        "role": "neutral",
+        "displayName": "light ring",
+        "canonical": "#797979",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "light-status": {
+        "role": "semantic",
+        "displayName": "light status",
+        "canonical": "#207440",
+        "tonalRamp": [
+          "oklch(15% 0.02 150)",
+          "oklch(27% 0.08 150)",
+          "oklch(39% 0.08 150)",
+          "oklch(51% 0.08 150)",
+          "oklch(63% 0.08 150)",
+          "oklch(75% 0.08 150)",
+          "oklch(87% 0.08 150)",
+          "oklch(95% 0.02 150)"
+        ]
+      },
+      "light-destructive": {
+        "role": "semantic",
+        "displayName": "light destructive",
+        "canonical": "#b42318",
+        "tonalRamp": [
+          "oklch(15% 0.02 25)",
+          "oklch(27% 0.12 25)",
+          "oklch(39% 0.12 25)",
+          "oklch(51% 0.12 25)",
+          "oklch(63% 0.12 25)",
+          "oklch(75% 0.12 25)",
+          "oklch(87% 0.12 25)",
+          "oklch(95% 0.02 25)"
+        ]
+      },
+      "dark-background": {
+        "role": "neutral",
+        "displayName": "dark background",
+        "canonical": "#111111",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "dark-foreground": {
+        "role": "neutral",
+        "displayName": "dark foreground",
+        "canonical": "#ededed",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "dark-card": {
+        "role": "neutral",
+        "displayName": "dark card",
+        "canonical": "#171717",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "dark-popover": {
+        "role": "neutral",
+        "displayName": "dark popover",
+        "canonical": "#222222",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "dark-secondary": {
+        "role": "neutral",
+        "displayName": "dark secondary",
+        "canonical": "#232323",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "dark-secondary-foreground": {
+        "role": "neutral",
+        "displayName": "dark secondary foreground",
+        "canonical": "#c7c7c7",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "dark muted",
+        "canonical": "#212121",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "dark-muted-foreground": {
+        "role": "neutral",
+        "displayName": "dark muted foreground",
+        "canonical": "#a0a0a0",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "dark-accent": {
+        "role": "neutral",
+        "displayName": "dark accent",
+        "canonical": "#262626",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "dark-border": {
+        "role": "neutral",
+        "displayName": "dark border",
+        "canonical": "#2b2b2b",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "dark-input": {
+        "role": "neutral",
+        "displayName": "dark input",
+        "canonical": "#383838",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "dark-ring": {
+        "role": "neutral",
+        "displayName": "dark ring",
+        "canonical": "#959595",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "dark-status": {
+        "role": "semantic",
+        "displayName": "dark status",
+        "canonical": "#87c998",
+        "tonalRamp": [
+          "oklch(15% 0.02 150)",
+          "oklch(27% 0.08 150)",
+          "oklch(39% 0.08 150)",
+          "oklch(51% 0.08 150)",
+          "oklch(63% 0.08 150)",
+          "oklch(75% 0.08 150)",
+          "oklch(87% 0.08 150)",
+          "oklch(95% 0.02 150)"
+        ]
+      },
+      "dark-destructive": {
+        "role": "semantic",
+        "displayName": "dark destructive",
+        "canonical": "#ff8e87",
+        "tonalRamp": [
+          "oklch(15% 0.02 25)",
+          "oklch(27% 0.12 25)",
+          "oklch(39% 0.12 25)",
+          "oklch(51% 0.12 25)",
+          "oklch(63% 0.12 25)",
+          "oklch(75% 0.12 25)",
+          "oklch(87% 0.12 25)",
+          "oklch(95% 0.02 25)"
+        ]
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary control; the page currently shows this disabled inside the coming-soon form.",
+      "html": "<button class=\"ds-primary\">Send message</button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;height:32px;padding:0 10px;border:1px solid transparent;border-radius:10px;background:var(--primary,#ededed);color:var(--primary-foreground,#111);font:500 14px/20px 'Geist Variable',sans-serif;transition:background-color 150ms cubic-bezier(.23,1,.32,1)}.ds-primary:hover{background:color-mix(in oklab,var(--primary,#ededed) 80%,transparent)}.ds-primary:focus-visible{outline:2px solid var(--ring,#959595);outline-offset:5px;box-shadow:0 0 0 3px color-mix(in oklab,var(--ring,#959595) 50%,transparent)}.ds-primary:disabled{pointer-events:none;opacity:.5}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+    },
+    {
+      "name": "Outline button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Download and email actions. The runtime dark theme adds a translucent input-color fill.",
+      "html": "<button class=\"ds-outline\">Download <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3\"/></svg></button>",
+      "css": ".ds-outline{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 8px 0 10px;border:1px solid var(--border,#2b2b2b);border-radius:10px;background:var(--background,#111);color:var(--foreground,#ededed);font:500 14px/20px 'Geist Variable',sans-serif;transition:background-color 150ms cubic-bezier(.23,1,.32,1)}.ds-outline:hover{background:var(--muted,#212121)}.ds-outline:focus-visible{outline:2px solid var(--ring,#959595);outline-offset:5px;box-shadow:0 0 0 3px color-mix(in oklab,var(--ring,#959595) 50%,transparent)}@media(prefers-reduced-motion:reduce){.ds-outline{transition:none}} :host-context(.dark) .ds-outline{border-color:var(--input,#383838);background:color-mix(in oklab,var(--input,#383838) 30%,transparent)} :host-context(.dark) .ds-outline:hover{background:color-mix(in oklab,var(--input,#383838) 50%,transparent)}"
+    },
+    {
+      "name": "Ghost button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Quiet resume action.",
+      "html": "<a class=\"ds-ghost\" href=\"#resume\">View resume</a>",
+      "css": ".ds-ghost{display:inline-flex;align-items:center;height:32px;padding:0 10px;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--foreground,#ededed);font:500 14px/20px 'Geist Variable',sans-serif;text-decoration:none;transition:background-color 150ms cubic-bezier(.23,1,.32,1)}.ds-ghost:hover{background:var(--muted,#212121)}.ds-ghost:focus-visible{outline:2px solid var(--ring,#959595);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-ghost{transition:none}} :host-context(.dark) .ds-ghost:hover{background:color-mix(in oklab,var(--muted,#212121) 50%,transparent)}"
+    },
+    {
+      "name": "Muted icon button",
+      "kind": "button",
+      "refersTo": "button-muted",
+      "description": "Theme, social and experience disclosure controls.",
+      "html": "<button class=\"ds-muted\" aria-label=\"Expand experience\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"/></svg></button>",
+      "css": ".ds-muted{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--muted-foreground,#a0a0a0);transition:background-color 150ms cubic-bezier(.23,1,.32,1),color 150ms cubic-bezier(.23,1,.32,1)}.ds-muted:hover{background:var(--muted,#212121);color:var(--foreground,#ededed)}.ds-muted:focus-visible{outline:2px solid var(--ring,#959595);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-muted{transition:none}}"
+    },
+    {
+      "name": "Text button",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Wrapping credential link with no inset padding.",
+      "html": "<a class=\"ds-text\" href=\"#credential\">Databricks Certified Data Engineer Associate</a>",
+      "css": ".ds-text{display:inline-flex;align-items:center;gap:6px;padding:0;border:1px solid transparent;border-radius:10px;color:var(--foreground,#ededed);background:transparent;font:500 13px/20px 'Geist Variable',sans-serif;text-align:left;text-decoration:none;white-space:normal;transition:color 150ms cubic-bezier(.23,1,.32,1)}.ds-text:hover{color:var(--muted-foreground,#a0a0a0)}.ds-text:focus-visible{outline:2px solid var(--ring,#959595);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-text{transition:none}}"
+    },
+    {
+      "name": "Technology badge",
+      "kind": "chip",
+      "refersTo": "badge-secondary",
+      "description": "Noninteractive wrapping skill label.",
+      "html": "<span class=\"ds-badge\">PySpark</span>",
+      "css": ".ds-badge{display:inline-flex;align-items:center;justify-content:center;min-height:24px;padding:2px 8px;border:1px solid transparent;border-radius:8px;background:var(--secondary,#232323);color:var(--secondary-foreground,#c7c7c7);font:500 11px/16.5px 'Geist Variable',sans-serif;white-space:normal}"
+    },
+    {
+      "name": "Project card",
+      "kind": "card",
+      "refersTo": "project-card",
+      "description": "Tonal project container with a fine ring and no hover lift.",
+      "html": "<article class=\"ds-card\"><div><h3>Label Detection</h3><p>Extracting label numbers from cement bags moving along a conveyor belt in video footage.</p></div><p>Used OpenCV to convert video to images and detect bags.</p><footer>Deep Learning · OpenCV · Python</footer></article>",
+      "css": ".ds-card{display:flex;flex-direction:column;gap:20px;overflow:hidden;padding:20px;border-radius:12px;background:var(--card,#171717);color:var(--card-foreground,#ededed);box-shadow:0 0 0 1px color-mix(in oklab,var(--foreground,#ededed) 10%,transparent);font:400 13px/1.75 'Geist Variable',sans-serif}.ds-card h3{margin:0;font-size:16px;font-weight:500;line-height:1.375}.ds-card p{margin:4px 0 0;color:var(--muted-foreground,#a0a0a0)}.ds-card footer{font-size:11px}"
+    },
+    {
+      "name": "Disabled contact field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Explicitly disabled field from the unconnected contact form.",
+      "html": "<label class=\"ds-field\">Your name<input class=\"ds-input\" placeholder=\"Name\" disabled /></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:8px;color:var(--foreground,#ededed);font:500 14px/20px 'Geist Variable',sans-serif}.ds-input{height:32px;min-width:0;padding:4px 10px;border:1px solid var(--input,#383838);border-radius:10px;background:transparent;color:var(--foreground,#ededed);font:400 16px/24px 'Geist Variable',sans-serif;transition:color 150ms,background-color 150ms,border-color 150ms}.ds-input::placeholder{color:var(--muted-foreground,#a0a0a0)}.ds-input:focus-visible{outline:2px solid var(--ring,#959595);outline-offset:5px;box-shadow:0 0 0 3px color-mix(in oklab,var(--ring,#959595) 50%,transparent)}.ds-input:disabled{cursor:not-allowed;opacity:.5;background:color-mix(in oklab,var(--input,#383838) 50%,transparent)}@media(min-width:768px){.ds-input{font-size:14px;line-height:20px}}@media(prefers-reduced-motion:reduce){.ds-input{transition:none}} :host-context(.dark) .ds-input{background:color-mix(in oklab,var(--input,#383838) 30%,transparent)} :host-context(.dark) .ds-input:disabled{background:color-mix(in oklab,var(--input,#383838) 80%,transparent)}"
+    },
+    {
+      "name": "Inline navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Compact links remain inline at mobile widths.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#about\" aria-current=\"location\">Home</a><a href=\"#experience\">Work</a><a href=\"#projects\">Projects</a><a href=\"#resume\">Resume</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:10px}.ds-nav a{display:flex;align-items:center;min-height:44px;padding:0 8px;border-radius:8px;color:var(--muted-foreground,#a0a0a0);font:400 13px/19.5px 'Geist Variable',sans-serif;text-decoration:none;transition:color 150ms}.ds-nav a:hover,.ds-nav a[aria-current]{color:var(--foreground,#ededed)}.ds-nav a:focus-visible{outline:2px solid var(--ring,#959595);outline-offset:5px}@media(max-width:600px){.ds-nav{gap:2px}}@media(max-width:370px){.ds-nav a{padding-inline:7px;font-size:12px}}@media(prefers-reduced-motion:reduce){.ds-nav a{transition:none}}"
+    },
+    {
+      "name": "Initials avatar",
+      "kind": "custom",
+      "refersTo": "avatar-profile",
+      "description": "Supplied initials rather than an invented portrait; employer size is 40px.",
+      "html": "<div class=\"ds-avatar\" aria-label=\"Omkar Rana\">OR</div>",
+      "css": ".ds-avatar{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:10px;background:var(--muted,#212121);color:var(--muted-foreground,#a0a0a0);box-shadow:inset 0 0 0 1px var(--border,#2b2b2b);font:500 20px/28px 'Geist Variable',sans-serif}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Engineering Profile",
+    "overview": "A narrow personal document gives professional experience room to be read. The built interface draws on the supplied Aneesh reference through its neutral palette, small controls, initials avatars and restrained typography. It stays compact without turning the profile into a dashboard.\n\nLight and dark themes share the same geometry. Self-hosted Geist supplies every text role; tonal surfaces and precise spacing carry the hierarchy. Motion acknowledges an entrance or a control state, with immediate keyboard operation and reduced-motion opacity alternatives.",
+    "keyCharacteristics": [
+      "One centered reading column.",
+      "Neutral surfaces with green reserved for employment and availability status.",
+      "Compact shadcn components backed by Base UI.",
+      "Softly squared controls and initials avatars.",
+      "Visible focus and restrained, interruptible state feedback."
+    ],
+    "rules": [
+      {
+        "name": "The Status Color Rule",
+        "body": "Use status green only for current employment and availability indicators.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Typeface Rule",
+        "body": "Use the same Geist family throughout; express hierarchy through size, weight, tone and spacing.",
+        "section": "typography"
+      },
+      {
+        "name": "The Quiet Surface Rule",
+        "body": "Preserve the page's tonal hierarchy and fine outlines when extending its existing surfaces.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do reuse semantic theme properties and the same shadcn components.",
+      "Do preserve the centered reading column and responsive gutters.",
+      "Do keep green tied to current employment and availability.",
+      "Do retain labeled controls, visible focus and reduced-motion behavior.",
+      "Do make unavailable actions explicit, as with the disabled contact form."
+    ],
+    "donts": [
+      "Don't add a separate display typeface to this interface.",
+      "Don't replace compact controls with oversized promotional treatments.",
+      "Don't add a portrait, company logo or project destination without supplied evidence.",
+      "Don't imply that the contact placeholder sends messages."
+    ]
+  }
+}

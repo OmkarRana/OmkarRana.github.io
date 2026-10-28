@@ -1,28 +1,118 @@
 import data from "@/data/portfolio.json";
-import { Header, Reveal, ContactForm } from "@/components/interactions";
-import { ArrowUpRight, ArrowRight, Download, Github, Linkedin, MapPin, GraduationCap, Database, Workflow, Code2, Check, FileText } from "lucide-react";
-
-function SectionTitle({ number, label, title, description }: { number: string; label: string; title: string; description?: string }) {
-  return <div className="section-heading"><div className="eyebrow"><span>{number}</span>{label}</div><h2>{title}</h2>{description && <p>{description}</p>}</div>;
-}
-
-function Pipeline() {
-  return <div className="pipeline" aria-hidden="true"><div className="pipeline-caption"><span className="tiny-dot" />FROM SOURCE TO POSSIBILITY<span>01 — 03</span></div><div className="pipeline-track"><div className="pipeline-node"><Database size={25} strokeWidth={1.4} /><span>INGEST</span></div><div className="pipeline-line"><i /></div><div className="pipeline-node featured"><Workflow size={29} strokeWidth={1.4} /><span>TRANSFORM</span></div><div className="pipeline-line"><i /></div><div className="pipeline-node"><Code2 size={25} strokeWidth={1.4} /><span>ENABLE</span></div></div><div className="pipeline-footer"><span>Python · PySpark · AWS</span><span>Data, connected.<ArrowUpRight size={14} /></span></div></div>;
-}
+import { Header, Entrance, ContactForm } from "@/components/interactions";
+import { WorkExperience } from "@/components/work-experience";
+import { workExperiences } from "@/lib/experience";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { ArrowDown, ArrowUpRight, Award, Download, Github, GraduationCap, Linkedin, Mail } from "lucide-react";
 
 export default function Home() {
-  const person = { "@context": "https://schema.org", "@type": "Person", name: data.name, jobTitle: data.title, email: data.email, sameAs: [data.links.github, data.links.linkedin], worksFor: { "@type": "Organization", name: data.experience[0].company } };
-  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }} /><a className="skip-link" href="#main">Skip to content</a><Header />
-    <main id="main">
-      <section className="hero container" aria-labelledby="hero-title">
-        <Reveal><div className="availability"><span />{data.availability}</div><div className="hero-layout"><div><p className="hero-intro">{data.name.toUpperCase()} / {data.title.toUpperCase()}</p><h1 id="hero-title">{data.headlineLead} <span>{data.headlineAccent}</span></h1><p className="hero-description">{data.valueProposition}</p><div className="hero-actions"><a className="button primary" href={data.resumeUrl} download="Omkar-Rana-Resume.pdf"><Download size={17} />Download resume</a><a className="button secondary" href="#contact">Let’s connect<ArrowUpRight size={18} /></a></div><div className="hero-socials"><span>FIND ME ON</span><a href={data.links.github} target="_blank" rel="noreferrer"><Github size={17} />GitHub<ArrowUpRight size={13} /></a><a href={data.links.linkedin} target="_blank" rel="noreferrer"><Linkedin size={17} />LinkedIn<ArrowUpRight size={13} /></a><a className="resume-view" href={data.resumeUrl} target="_blank" rel="noreferrer"><FileText size={15} />View résumé</a></div></div><div className="hero-aside"><Pipeline /><div className="current-role"><span className="role-marker">↳</span><div><span>CURRENTLY AT</span><p>Tata Consultancy Services</p><small>Data Engineer</small></div></div></div></div></Reveal>
-        <div className="hero-bottom"><span>{data.focusTechnologies.join(" / ").toUpperCase()}</span><a href="#about">Explore my work<span>↓</span></a></div>
-      </section>
-      <section id="about" className="section about-section"><div className="container"><Reveal><div className="about-grid"><SectionTitle number="01" label="A LITTLE ABOUT ME" title="Built around data." /><div className="about-copy"><p>{data.summary}</p><div className="about-facts">{data.facts.map(fact => <div key={fact.label}><strong>{fact.value}<span>{fact.unit}</span></strong><span>{fact.label}</span></div>)}</div></div></div></Reveal></div></section>
-      <section id="experience" className="section container"><Reveal><SectionTitle number="02" label="EXPERIENCE" title="Where I’ve made an impact." description="Cloud pipelines, healthcare data, and trading analytics." /></Reveal><div className="experience-list">{data.experience.map((job, index) => <Reveal key={job.company}><article className="experience-card"><div className="experience-meta"><span className="job-period">{job.start} — {job.end}</span><p><MapPin size={13} />{job.location}</p>{index === 0 && <span className="current-badge">Current role</span>}</div><div className="experience-content"><div className="job-heading"><div><h3>{job.role}</h3><p>{job.company}</p></div><span className="company-monogram">{job.shortName}</span></div><ul>{job.highlights.map(text => <li key={text}>{text}</li>)}</ul><div className="tags">{job.technologies.map(tech => <span key={tech}>{tech}</span>)}</div></div></article></Reveal>)}</div></section>
-      <section id="skills" className="section skills-section"><div className="container"><Reveal><SectionTitle number="03" label="TOOLKIT" title="The tools behind the work." description="From cloud data engineering to systems that support AI." /></Reveal><div className="skills-grid">{data.skills.map((group, i) => <Reveal key={group.category}><article className="skill-group"><span className="skill-index">0{i + 1} /</span><h3>{group.category}</h3><div className="tags">{group.items.map(item => <span key={item}>{item}</span>)}</div></article></Reveal>)}</div></div></section>
-      <section id="projects" className="section container"><Reveal><SectionTitle number="04" label="SELECTED PROJECTS" title="From an idea to a working system." description="A look at my work in computer vision and image processing." /></Reveal><div className="projects-grid">{data.projects.map((project, i) => <Reveal key={project.id}><article className="project-card"><div className={`project-art art-${i}`} aria-hidden="true">{i === 0 ? <div className="vision-scene"><span className="scan-label">LABEL DETECTION</span><div className="conveyor"><div className="bag"><span>042</span></div><div className="bag"><span>043</span></div><div className="bag"><span>044</span></div></div><div className="scan-target"><i /><i /><i /><i /></div><span className="scan-readout"><span />LABEL IDENTIFIED</span></div> : <div className="parking-scene"><span className="scan-label">PARKING AID SYSTEM</span><div className="parking-spaces">{Array.from({ length: 8 }, (_, n) => <div className={n === 2 || n === 5 ? "space empty" : "space occupied"} key={n}>{n === 2 || n === 5 ? <Check size={19} /> : <div />}</div>)}</div><span className="scan-readout"><span />OPEN SPACE DETECTED</span></div>}</div><div className="project-content"><p className="project-category">{project.category}<span>0{i + 1}</span></p><h3>{project.name}</h3><p>{project.description}</p><ul>{project.details.map(detail => <li key={detail}>{detail}</li>)}</ul><div className="tags">{project.technologies.map(tech => <span key={tech}>{tech}</span>)}</div>{(project.repoUrl || project.demoUrl) && <div className="project-links">{project.repoUrl && <a href={project.repoUrl} target="_blank" rel="noreferrer">Repository<ArrowUpRight size={15} /></a>}{project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noreferrer">Demo<ArrowUpRight size={15} /></a>}</div>}</div></article></Reveal>)}</div></section>
-      <section className="section credentials-section"><div className="container"><Reveal><SectionTitle number="05" label="CONTINUED LEARNING" title="Always building on the foundation." /></Reveal><div className="credentials-grid"><div className="certification-list">{data.certifications.map(cert => <Reveal key={cert.name}><a className="certification" href={cert.url} target="_blank" rel="noreferrer"><span className="cert-mark"><Check size={17} /></span><div><span>{cert.issuer}</span><h3>{cert.name}</h3>{"credentialId" in cert && <small>Verification ID: {cert.credentialId}</small>}</div><ArrowUpRight size={19} /></a></Reveal>)}</div><Reveal><article className="education"><GraduationCap size={28} strokeWidth={1.4} /><p className="eyebrow">EDUCATION</p><h3>{data.education.institution}</h3><p>{data.education.degree}</p><span>{data.education.start} — {data.education.end}</span><small>{data.education.location}</small></article></Reveal></div></div></section>
-      <section id="contact" className="section container contact-section"><Reveal><div className="contact-grid"><div><div className="eyebrow"><span>06</span>LET’S CONNECT</div><h2>Good work starts<br />with a conversation<span className="accent">.</span></h2><p>I’m looking for my next opportunity in data engineering. Have a role in mind? Let’s talk.</p><a className="email-link" href={`mailto:${data.email}`}>{data.email}<ArrowUpRight size={21} /></a><div className="contact-socials"><a href={data.links.linkedin} target="_blank" rel="noreferrer"><Linkedin size={18} />LinkedIn<ArrowUpRight size={15} /></a><a href={data.links.github} target="_blank" rel="noreferrer"><Github size={18} />GitHub<ArrowUpRight size={15} /></a></div></div><ContactForm email={data.email} /></div></Reveal></section>
-    </main><footer className="container footer"><a className="wordmark" href="#" aria-label="Back to top">omkar<span>rana.</span></a><span>© {new Date().getFullYear()} {data.name}</span><a href="#main">Back to top<ArrowRight size={15} className="back-arrow" /></a></footer></>;
+  const person = {
+    "@context": "https://schema.org", "@type": "Person", name: data.name,
+    jobTitle: data.title, email: data.email,
+    sameAs: [data.links.github, data.links.linkedin],
+    worksFor: { "@type": "Organization", name: data.experience[0].company },
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }} />
+      <a className="skip-link" href="#main">Skip to content</a>
+      <Header />
+      <main id="main" className="reading-column">
+        <section id="about" aria-labelledby="profile-name" className="profile-section">
+          <Entrance>
+            <div className="identity">
+              <Avatar size="profile"><AvatarFallback>{data.initials}</AvatarFallback></Avatar>
+              <div>
+                <h1 id="profile-name">{data.name}</h1>
+                <p className="profile-role">{data.title}</p>
+              </div>
+            </div>
+            <div className="profile-context">
+              <div><span className="context-label">Currently</span><span className="current-company"><span className="status-dot" aria-hidden="true" />{data.experience[0].company}</span></div>
+              <div><span className="context-label">Focused on</span><span>{data.focusTechnologies.slice(0, 2).join(" & ")}</span></div>
+            </div>
+            <p className="profile-summary">{data.summary}</p>
+            <div className="profile-availability"><span className="status-dot" aria-hidden="true" />{data.availability}</div>
+            <div className="profile-actions">
+              <div className="social-actions">
+                <Button variant="muted" size="icon" nativeButton={false} render={<a href={data.links.github} target="_blank" rel="noreferrer" aria-label="GitHub profile" />}><Github /></Button>
+                <Button variant="muted" size="icon" nativeButton={false} render={<a href={data.links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn profile" />}><Linkedin /></Button>
+                <Button variant="muted" size="icon" nativeButton={false} render={<a href={`mailto:${data.email}`} aria-label="Email Omkar" />}><Mail /></Button>
+              </div>
+              <Separator orientation="vertical" className="h-5" />
+              <Button variant="ghost" nativeButton={false} render={<a href={data.resumeUrl} target="_blank" rel="noreferrer" />}>View resume<ArrowUpRight data-icon="inline-end" /></Button>
+              <Button variant="outline" nativeButton={false} render={<a href={data.resumeUrl} download="Omkar-Rana-Resume.pdf" aria-label="Download resume" />}><span className="download-label">Download</span><Download data-icon="inline-end" /></Button>
+            </div>
+          </Entrance>
+        </section>
+
+        <section id="experience" className="portfolio-section" aria-labelledby="experience-title">
+          <h2 id="experience-title">Work experience</h2>
+          <WorkExperience experiences={workExperiences} />
+        </section>
+
+        <section id="skills" className="portfolio-section" aria-labelledby="skills-title">
+          <h2 id="skills-title">Tools I work with</h2>
+          <div className="skill-list">
+            {data.skills.map(group => (
+              <div className="skill-row" key={group.category}>
+                <h3>{group.category}</h3>
+                <div className="skill-badges">{group.items.map(skill => <Badge variant="secondary" key={skill}>{skill}</Badge>)}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="projects" className="portfolio-section" aria-labelledby="projects-title">
+          <h2 id="projects-title">Selected projects</h2>
+          <p className="section-intro">A few things I’ve built with computer vision.</p>
+          <div className="project-list">
+            {data.projects.map(project => (
+              <Card key={project.id}>
+                <CardHeader>
+                  <CardTitle><h3>{project.name}</h3></CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
+                </CardHeader>
+                <CardContent><ul className="project-details">{project.details.map(detail => <li key={detail}>{detail}</li>)}</ul></CardContent>
+                <CardFooter><div className="skill-badges">{project.technologies.map(tech => <Badge variant="outline" key={tech}>{tech}</Badge>)}</div>
+                  {(project.repoUrl || project.demoUrl) && <div className="project-links">{project.repoUrl && <Button variant="link" nativeButton={false} render={<a href={project.repoUrl} target="_blank" rel="noreferrer" />}>Repository<ArrowUpRight data-icon="inline-end" /></Button>}{project.demoUrl && <Button variant="link" nativeButton={false} render={<a href={project.demoUrl} target="_blank" rel="noreferrer" />}>Demo<ArrowUpRight data-icon="inline-end" /></Button>}</div>}
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section className="portfolio-section" aria-labelledby="credentials-title">
+          <h2 id="credentials-title">Certifications</h2>
+          <div className="credential-list">{data.certifications.map(cert => (
+            <div className="credential-row" key={cert.name}>
+              <Award aria-hidden="true" className="credential-icon" />
+              <div><Button variant="text" nativeButton={false} render={<a href={cert.url} target="_blank" rel="noreferrer" />}>{cert.name}<ArrowUpRight data-icon="inline-end" /></Button>
+                <p>{cert.issuer}{"credentialId" in cert && <span className="credential-id"> · ID: {cert.credentialId}</span>}</p>
+              </div>
+            </div>
+          ))}</div>
+        </section>
+
+        <section className="portfolio-section" aria-labelledby="education-title">
+          <h2 id="education-title">Education</h2>
+          <div className="education-row"><GraduationCap aria-hidden="true" /><div><h3>{data.education.institution}</h3><p>{data.education.degree}</p><span>{data.education.start} — {data.education.end}<span className="education-location"> · {data.education.location}</span></span></div></div>
+        </section>
+
+        <section id="contact" className="portfolio-section contact-section" aria-labelledby="contact-title">
+          <h2 id="contact-title">Let’s work together.</h2>
+          <p className="contact-copy">I’m looking for my next opportunity in data engineering. If you have a role in mind, I’d love to hear from you.</p>
+          <Button variant="outline" size="lg" nativeButton={false} render={<a href={`mailto:${data.email}`} />}><Mail data-icon="inline-start" />{data.email}<ArrowUpRight data-icon="inline-end" /></Button>
+          <ContactForm email={data.email} />
+        </section>
+        <Separator />
+        <footer className="footer"><span>© {new Date().getFullYear()} {data.name}</span><Button variant="muted" size="sm" nativeButton={false} render={<a href="#about" />}>Back to top<ArrowDown className="rotate-180" data-icon="inline-end" /></Button></footer>
+      </main>
+    </>
+  );
 }

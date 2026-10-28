@@ -9,3 +9,6 @@ out/
 next-env.d.ts
 .vercel/
 tmp/
+.agents/
+.claude/
+.codex/

@@ -35,13 +35,13 @@ The deployable site is generated in `out/`. Commit the generated `bun.lock` afte
 src/
   app/
     layout.tsx              Metadata, theme initialization, global layout
-    page.tsx                Portfolio sections and decorative project illustrations
+    page.tsx                Profile, experience, skills, projects and credentials
     globals.css             Tailwind import, design tokens, responsive styles
     icon.svg                Favicon
     robots.ts               Search crawler policy
     sitemap.ts              Canonical site sitemap
   components/
-    interactions.tsx        Theme switch, mobile navigation, motion, form preview
+    interactions.tsx        Theme switch, navigation, disclosures, motion, form preview
   data/
     portfolio.json          Editable content, links, experience, projects, skills
     resume-source.json      Source PDF filename and date of last copy
@@ -67,9 +67,9 @@ scripts/
 
 Ask Codex to read your newly named PDF and update both the website data and public download together whenever you want assisted updates. Updates are not monitored automatically. The public URL stays `/resume.pdf`, regardless of the source filename, so buttons never need to be changed.
 
-Project `repoUrl` and `demoUrl` values are currently `null` because the resume supplies no project links. Add real URLs when available; their buttons appear automatically. Replace project entries in the JSON when newer projects are ready. Project header illustrations are decorative CSS concepts, not screenshots of the original projects. To change those illustrations, edit `page.tsx` and the corresponding CSS.
+Project `repoUrl` and `demoUrl` values are currently `null` because the resume supplies no project links. Add real URLs when available; their buttons appear automatically. Replace project entries in the JSON when newer projects are ready. The reference-inspired design uses text-led project cards without fabricated screenshots or illustrations.
 
-The site uses system fonts, so fonts require no network requests or build-time downloads. It includes semantic sections, a skip link, visible keyboard focus, reduced-motion support, a mobile menu that closes with Escape, and a persistent light/dark preference. Content remains visible if animation scripts do not load.
+The site self-hosts Geist through `@fontsource-variable/geist`, so fonts require no requests to Google or other font hosts. It includes semantic sections, a skip link, visible keyboard focus, reduced-motion support, compact navigation that stays visible on mobile, and a persistent light/dark preference. Content remains visible if animation scripts do not load.
 
 ## Contact form status
 
@@ -99,3 +99,15 @@ The included `public/.nojekyll` is copied into the export. The site assumes host
 ## Before publishing
 
 Check desktop and mobile layouts, both themes, keyboard navigation, resume download/view, certification destinations and social links. Run Lighthouse against the deployed production build; no score is claimed until measured. The AWS certification links to the resume's verification portal and displays its supplied verification ID.
+
+## Design and components
+
+The current design follows the compact, text-led direction of the user-provided Aneesh Bhadauria portfolio reference. It uses official shadcn/ui components with Base UI primitives, a narrow 680px reading column, self-hosted Geist, neutral dark/light themes, and restrained motion. Use `bunx --bun shadcn@latest add @shadcn/<component>` to add further components. Customize component variants in `src/components/ui/` and semantic theme roles in `src/app/globals.css`; keep page-level classes for layout. `DESIGN.md` records the finished system. The contact form is an expandable disabled preview.
+
+## Motion
+
+All authored movement uses Motion for React through the existing `framer-motion` dependency: disclosure panels (200ms measured height and160ms opacity), disclosure chevrons (180ms), theme icons (150ms), and pointer press feedback (140ms). The shared ease is `[0.23, 1, 0.32, 1]`. Keyboard activation is immediate. Reduced motion removes positional changes and keeps100ms fades where useful. Navigation, skill badges and project text stay still. Shadcn retains control semantics; closed disclosure panels are inert and hidden from assistive technology during their exit. The contact form remains a placeholder.
+
+## Work experience component
+
+The experience section uses the installed Chanh Dai `WorkExperience` component from the configured `@ncdai` registry. `src/lib/experience.ts` maps `portfolio.json` into its company/position schema and converts resume dates to `MM.YYYY`. Update only the resume data; responsibilities, locations, current-employer status and skill tags update through this adapter. Company logo/site and employment type remain unset when absent from the resume. Derived duration labels are disabled. The installed timeline keeps Motion disclosure behavior, reduced-motion handling and keyboard operation.
