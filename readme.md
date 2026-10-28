@@ -84,15 +84,19 @@ For a future Resend integration, switch away from static export if using a Next.
 3. Set `NEXT_PUBLIC_SITE_URL` to your production origin, e.g. `https://your-domain.example`, without a trailing slash. This controls canonical, Open Graph, robots and sitemap URLs. Its default is `https://omkarrana.github.io`.
 4. Deploy. Confirm the resume download, links, theme toggle, navigation and mobile layout.
 
-No secrets or contact service configuration are required for the current version. The site has not been deployed by Codex.
+No secrets or contact service configuration are required for the current version. The production deployment is managed by the GitHub Pages workflow described below.
 
 ## Deploy to GitHub Pages
 
 The `output: "export"` setting also supports this repository's root GitHub Pages site, `https://omkarrana.github.io`.
 
-1. Run `bun install` and `bun run build`.
-2. Upload the contents of `out/` using a GitHub Pages Actions workflow (including `_next/` and `.nojekyll`). In repository settings, choose **GitHub Actions** as the Pages source.
-3. Use `NEXT_PUBLIC_SITE_URL=https://omkarrana.github.io` at build time.
+The included `.github/workflows/deploy-pages.yml` builds and deploys the site on pushes to `main`, and can also be run manually from the Actions tab.
+
+1. Keep **Settings → Pages → Source** set to **GitHub Actions**.
+2. Push source/content updates to `main`. The workflow installs with Bun using the frozen lockfile, checks TypeScript, exports Next.js, and publishes only `out/`.
+3. Wait for the **Deploy portfolio to GitHub Pages** workflow to succeed, then visit https://omkarrana.github.io.
+
+The workflow pins Bun 1.4.4, uses Node.js22, and sets `NEXT_PUBLIC_SITE_URL=https://omkarrana.github.io` at build time. GitHub's automatic deployment token supplies narrowly scoped Pages permissions; no personal access token needs to be stored in the repository.
 
 The included `public/.nojekyll` is copied into the export. The site assumes hosting at `/`; a project subpath such as `/portfolio/` would also require base-path-aware asset and navigation URLs.
 
